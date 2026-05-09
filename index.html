@@ -64,6 +64,191 @@
             color: #667eea;
             text-decoration: none;
         }
+        .war-stories {
+            padding: 50px 0;
+        }
+        .section-subtitle {
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin-top: -10px;
+            margin-bottom: 30px;
+        }
+        .story-col {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-left: 4px solid #0066cc;
+            border-radius: 8px;
+            padding: 28px 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: box-shadow 0.2s ease;
+        }
+        .story-col:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .story-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+            align-items: center;
+        }
+        .story-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .tag-perf { background: #fef3c7; color: #92400e; }
+        .tag-migration { background: #dbeafe; color: #1e40af; }
+        .tag-debug { background: #fee2e2; color: #991b1b; }
+        .tag-stack { background: #f3f4f6; color: #374151; }
+        .story-metric {
+            margin-left: auto;
+            font-size: 0.85rem;
+            color: #059669;
+            font-weight: 600;
+        }
+        .story-col h3 {
+            font-size: 1.4rem;
+            margin: 0 0 16px 0;
+            color: #111827;
+            line-height: 1.35;
+        }
+        .story-body p {
+            margin-bottom: 14px;
+            line-height: 1.7;
+            color: #374151;
+        }
+        .story-body strong {
+            color: #111827;
+        }
+        .story-body code {
+            background: #f3f4f6;
+            color: #c7254e;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: "SFMono-Regular", Consolas, monospace;
+        }
+        .story-body pre {
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 16px 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 16px 0;
+        }
+        .story-body pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+            font-size: 0.88em;
+            line-height: 1.55;
+        }
+        .story-body ul, .story-body ol {
+            margin: 12px 0 14px 0;
+            padding-left: 22px;
+        }
+        .story-body li {
+            margin-bottom: 6px;
+            line-height: 1.65;
+        }
+        @media (max-width: 768px) {
+            .story-col {
+                padding: 20px;
+            }
+            .story-metric {
+                margin-left: 0;
+                width: 100%;
+                margin-top: 4px;
+            }
+        }
+        /* Collapsible story behavior */
+        .story-col {
+            cursor: pointer;
+            position: relative;
+        }
+        .story-col .story-body {
+            display: none;
+            cursor: auto;
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid #e5e7eb;
+        }
+        .story-col.expanded .story-body {
+            display: block;
+        }
+        .story-col.expanded {
+            cursor: auto;
+        }
+        .story-summary {
+            color: #4b5563;
+            font-size: 0.95rem;
+            margin: 8px 0 0 0;
+            line-height: 1.55;
+        }
+        .story-toggle {
+            display: block;
+            color: #0066cc;
+            font-size: 0.85rem;
+            font-weight: 600;
+            user-select: none;
+            margin-top: 12px;
+            text-align: right;
+        }
+        /* Compact skills grid */
+        .skills-compact {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+        .skills-compact-row {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 16px;
+            align-items: baseline;
+            font-size: 0.95rem;
+            line-height: 1.55;
+            padding: 10px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .skills-compact-row:last-child {
+            border-bottom: none;
+        }
+        .skills-compact-label {
+            font-weight: 600;
+            color: #0066cc;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 768px) {
+            .skills-compact-row {
+                grid-template-columns: 1fr;
+                gap: 4px;
+                padding: 8px 0;
+            }
+        }
+        .story-col.expanded .story-toggle::after {
+            content: "Collapse ▲";
+        }
+        .story-col:not(.expanded) .story-toggle::after {
+            content: "Read more ▼";
+        }
+        @media (max-width: 768px) {
+            .skills-compact {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+            .skills-compact-row {
+                grid-template-columns: 1fr;
+                gap: 2px;
+            }
+        }
     </style>
 </head>
 
@@ -86,6 +271,9 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#about">About<i class="fa fa-address-card"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#war-stories">Stories<i class="fa fa-book"></i></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#experience">Experience<i class="fa fa-star"></i></a>
@@ -131,42 +319,153 @@
                         </div>
                         <div class="col-md-6 col-lg-7">
                             <p>
-                                <strong>Senior Full-stack Engineer</strong> with <span class="highlight-number">7+ years</span> building <strong>in-house SaaS products</strong> on .NET and Vue. Currently lead engineer on Mantu's internal product platform serving <span class="highlight-number">8,000+ employees globally</span>, where I own <span class="highlight-number">8+ products</span> end-to-end across roadmap, architecture, delivery, and long-term adoption.
+                                <strong>Senior Full-stack Engineer</strong> with <span class="highlight-number">7+ years</span> building <strong>in-house SaaS products</strong> on .NET and Vue. Currently lead engineer on Mantu's internal product platform serving <span class="highlight-number">8,000+ employees globally</span>, owning <span class="highlight-number">8+ products</span> end-to-end across roadmap, architecture, delivery, and long-term adoption.
                             </p>
                             <p>
-                                Strong track record of measurable impact: cut API p95 latency <span class="highlight-number">82% (14s → 2.5s)</span>, reduced sync-job database load by <span class="highlight-number">~99%</span> (10,000+ queries to 4–5), and led full V1→V2 platform migrations preserving <span class="highlight-number">100% data integrity</span>. Comfortable shipping AI-powered features with Azure OpenAI (tool_calls, structured outputs, RAG/embeddings) and driving cross-team technical handovers.
-                            </p>
-                            <p>
-                                Open to <strong>Senior / Lead roles</strong> in product companies.
+                                Track record of measurable impact: cut API p95 latency <span class="highlight-number">82% (14s → 2.5s)</span>, reduced sync-job DB load by <span class="highlight-number">~99%</span>, and led full V1→V2 platform migrations preserving <span class="highlight-number">100% data integrity</span>. Comfortable shipping AI features with Azure OpenAI (tool_calls, RAG/embeddings) and driving cross-team handovers.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="cta-section">
-                <h3>Ready to Build Products That Matter?</h3>
-                <p>Looking for a Senior or Lead engineer who owns products end-to-end, ships AI-powered features, and delivers measurable performance wins? Let's talk.</p>
-                <a href="mailto:phuongnd.tech@gmail.com" class="btn-custom">Let's Talk</a>
-                <a href="https://www.linkedin.com/in/phuongsoftware" class="btn-outline-custom" target="_blank">View LinkedIn Profile</a>
-            </div>
+            <div class="cta-section" style="display:none;"></div>
 
-            <div class="education" id="education">
-                <div class="content-inner">
-                    <div class="content-header">
-                        <h2>Education &amp; Research</h2>
+            <div class="war-stories" id="war-stories">
+                  <div class="content-header section-subtitle">
+                        <h2>War Stories — Lessons from Production</h2>
                     </div>
-                    <div class="row align-items-center">
-                        <div class="col-md-12">
-                            <div class="edu-col">
-                                <span>2012 <i> to </i>2016</span>
-                                <h3>B.Sc. Software Engineering</h3>
-                                <p>VNU-HCM — University of Science</p>
-                                <p><em>Research: Vietnamese Automatic Speech Recognition &amp; Speech Separation — contributed to the VN-SpeechMix dataset for Vietnamese speech processing.</em></p>
-                            </div>
+
+                    <!-- STORY 1: Location API Performance -->
+                    <div class="story-col" data-story="1">
+                        <div class="story-header">
+                            <span class="story-tag tag-perf">Performance</span>
+                            <span class="story-tag tag-stack">.NET 8 · Azure</span>
+                            <span class="story-metric">14s → 2.5s · 82% reduction</span>
+                        </div>
+                        <h3>From 14 seconds to 2.5: SemaphoreSlim done right</h3>
+                        <p class="story-summary">An API consumed by 8+ products had p95 latency around 14 seconds. Naive parallelization made it worse. The right answer was <em>controlled</em> concurrency — and a deeper lesson about backpressure.</p>
+                        <span class="story-toggle"></span>
+                        <div class="story-body">
+                            <p><strong>The problem.</strong> A Location API consumed by 8+ downstream products had p95 latency around 14 seconds for address lookup. Users were complaining; downstream services were timing out and retrying, amplifying the load. The API was making serial calls to Google Places and Geocoding for each request, sometimes 5–10 external calls per lookup.</p>
+
+                            <p><strong>The naive fix that didn't work.</strong> First instinct: wrap the calls in <code>Parallel.ForEach</code> or unbounded <code>Task.WhenAll</code>. This made things worse. Google's APIs have rate limits per second, and firing 10 concurrent calls from every request quickly hit 429 throttling errors. The retries on top of throttling pushed latency higher than the original serial version.</p>
+
+                            <p><strong>Root cause analysis.</strong> Two separate problems were tangled together: serial I/O when parallelism was safe, and unbounded parallelism when rate limits required throttling. You can't fix the second by ignoring the first; you need <em>controlled</em> concurrency.</p>
+
+                            <p><strong>The fix.</strong> Replaced unbounded parallelism with <code>SemaphoreSlim</code>-controlled concurrency. The semaphore caps simultaneous outbound calls to a tuned number (high enough to parallelize, low enough to stay under rate limits). Code pattern:</p>
+
+                            <pre><code>private static readonly SemaphoreSlim _gate = new(maxConcurrency: 8);
+
+                            public async Task&lt;Result&gt; LookupAsync(Address addr, CancellationToken ct)
+                            {
+                                await _gate.WaitAsync(ct);
+                                try
+                                {
+                                    return await _googleClient.GeocodeAsync(addr, ct);
+                                }
+                                finally
+                                {
+                                    _gate.Release();
+                                }
+                            }</code></pre>
+
+                            <p>Combined with smart batching (group similar lookups, dedupe before calling), p95 dropped from ~14s to ~2.5s — a 5.6× improvement. Tail latency stopped causing downstream cascades.</p>
+
+                            <p><strong>Bonus win.</strong> The same pattern applied to a separate CityMapping job gave a 10× speedup on a nightly batch.</p>
+
+                            <p><strong>Lesson.</strong> "Make it parallel" is not a strategy. Concurrency without throttling is just a faster way to hit rate limits. SemaphoreSlim is the right primitive when you need parallelism with backpressure — and it works just as well for in-memory bottlenecks (DB connection pools, expensive computations) as for external APIs.</p>
                         </div>
                     </div>
-                </div>
+
+                    <!-- STORY 2: SurveyV1 → V2 Migration -->
+                    <div class="story-col" data-story="2">
+                        <div class="story-header">
+                            <span class="story-tag tag-migration">Migration</span>
+                            <span class="story-tag tag-stack">.NET 8 · Clean Architecture · CQRS</span>
+                            <span class="story-metric">100% data integrity · zero downtime</span>
+                        </div>
+                        <h3>Migrating a 5-year-old survey monolith without losing a single response</h3>
+                        <p class="story-summary">Thousands of historical surveys, referenced by HR and compliance, had to migrate from ASP.NET MVC 5 to .NET 8 Clean Architecture without a single lost response. The migration code itself became a CQRS command — and that decision saved us twice.</p>
+                        <span class="story-toggle"></span>
+                        <div class="story-body">
+                            <p><strong>The problem.</strong> A legacy survey platform built on ASP.NET MVC 5 / OWIN had served the company for 5+ years. New features were getting harder to add: auth was tied to the framework, business logic lived in controllers, and the data model assumed a single survey shape. Meanwhile, V2 needed branching logic, AI-assisted creation, richer analytics, and a Vue 3 frontend.</p>
+
+                            <p><strong>The constraint that mattered most.</strong> Thousands of historical surveys and responses were live data — referenced by HR, compliance, and internal reporting. Losing or corrupting any of them was unacceptable. Migration had to be 100% lossless and rollback-safe.</p>
+
+                            <p><strong>Architecture choice.</strong> V2 was rebuilt on .NET 8 with Clean Architecture and CQRS via MediatR. The reason wasn't fashion — it was that the migration logic itself needed to be a first-class command (<code>MigrateFromV1Command</code> with its handler), testable in isolation against real V1 data snapshots before touching production.</p>
+
+                            <p><strong>Migration strategy.</strong> Three principles:</p>
+                            <ul>
+                                <li><strong>Map everything explicit.</strong> Every V1 question type was mapped to a V2 equivalent in code, not magic. Unsupported types were explicitly skipped with logged reasons, not silently dropped.</li>
+                                <li><strong>Idempotent handlers.</strong> The migration command could be re-run without duplicating data. Each V1 record had a stable ID that V2 used as a uniqueness key.</li>
+                                <li><strong>Dry run first.</strong> Migration ran end-to-end against a staging copy of production data, with diffs verified before a single row was written to V2 production.</li>
+                            </ul>
+
+                            <p><strong>Result.</strong> Zero user-reported data loss. Permissions, response history, and survey structure preserved exactly. The dry-run discipline caught two edge cases that would have corrupted matrix-question responses if shipped blind.</p>
+
+                            <p><strong>Lesson.</strong> When the constraint is "don't lose data," the migration code deserves the same architectural care as the product itself. A handler with tests beats a one-off SQL script every time. The cost of writing it as a CQRS command was a few extra hours; the cost of corrupting historical data would have been measured in trust.</p>
+                        </div>
+                    </div>
+
+                    <!-- STORY 3: CDN Migration -->
+                    <div class="story-col" data-story="3">
+                        <div class="story-header">
+                            <span class="story-tag tag-migration">Modernization</span>
+                            <span class="story-tag tag-stack">.NET Framework 4.8 → .NET 8 Minimal API</span>
+                            <span class="story-metric">millions of records · public-facing</span>
+                        </div>
+                        <h3>Modernizing a CDN download service: three traps in a "simple" .NET migration</h3>
+                        <p class="story-summary">"Port the controllers, swap NuGet, redeploy." The plan was simple. Production found three traps that don't show up in any migration guide: a redirect loop, a thread-pool deadlock waiting to happen, and a content type that silently broke analytics.</p>
+                        <span class="story-toggle"></span>
+                        <div class="story-body">
+                            <p><strong>The problem.</strong> An internal CDN download service ran on .NET Framework 4.8 — a public-facing endpoint serving millions of file requests. It worked, but maintenance was getting expensive: no first-class Linux support, slower deployments, and an Azure stack moving toward .NET 8 Minimal API everywhere else.</p>
+
+                            <p><strong>What looked simple.</strong> "Port the controllers, swap NuGet packages, redeploy." That was the plan. The reality had three traps that don't show up in any migration guide.</p>
+
+                            <p><strong>Trap 1: The 307 redirect loop.</strong> After cutover, certain download URLs entered a 307 → 307 → 307 loop. The cause was a difference in how .NET 8 handled trailing-slash normalization combined with HTTPS redirection middleware ordering. The fix wasn't a config tweak — it was reordering the middleware pipeline so HTTPS upgrade happened before route normalization, not after.</p>
+
+                            <p><strong>Trap 2: ZIP streaming broke under .NET 8.</strong> The legacy code streamed multi-file ZIPs back to clients using synchronous <code>Stream.Write</code>. Kestrel under .NET 8 disables synchronous IO by default, with good reason — it can deadlock the thread pool. The pragmatic fix was setting <code>AllowSynchronousIO = true</code> only on the ZIP-streaming endpoint, with a TODO to refactor the ZIP library to async streams as a follow-up. Don't enable it globally; that's how you trade one bug for a worse one.</p>
+
+                            <p><strong>Trap 3: The tracking pixel.</strong> A 1×1 GIF used for download analytics was returning a different content type after migration, breaking downstream analytics ingestion. The Framework version had silently inferred MIME from the file extension; Minimal API required an explicit <code>Results.File(bytes, "image/gif")</code>. Easy to miss, easy to fix once spotted.</p>
+
+                            <p><strong>Bonus.</strong> Built a public file-access statistics dashboard on top of Application Insights using KQL queries — millions of records aggregated into per-day, per-file views, replacing a Power BI report nobody wanted to maintain.</p>
+
+                            <p><strong>Lesson.</strong> A ".NET 4.8 → .NET 8 port" sounds like a refactor, but it's really three separate migrations stacked: the runtime, the hosting model (System.Web → Kestrel), and the API surface (Controllers → Minimal API). Each one has its own footguns. Plan canary deploys and monitor 4xx/5xx ratios closely for the first week; the bugs surface in production traffic patterns, not in unit tests.</p>
+                        </div>
+                    </div>
+
+                    <!-- STORY 4: FluentValidation Concurrency Bug -->
+                    <div class="story-col" data-story="4">
+                        <div class="story-header">
+                            <span class="story-tag tag-debug">Debugging</span>
+                            <span class="story-tag tag-stack">.NET · FluentValidation · MediatR</span>
+                            <span class="story-metric">intermittent · only under load</span>
+                        </div>
+                        <h3>The intermittent 500: a FluentValidation concurrency bug only load could expose</h3>
+                        <p class="story-summary">Rare 500s in production, never reproducible locally. The stack trace pointed at framework code. KQL with timestamp clustering was what cracked it — the bug had been live for months, masked by low concurrency.</p>
+                        <span class="story-toggle"></span>
+                        <div class="story-body">
+                            <p><strong>The problem.</strong> An internal access-management service was throwing intermittent 500s in production. The errors were rare — maybe 1 in every few hundred requests — and never reproducible locally. Application Insights showed a Dictionary <code>InvalidOperationException</code> deep inside a FluentValidation pipeline behavior, but the stack trace pointed at framework code, not application code.</p>
+
+                            <p><strong>Why it didn't reproduce.</strong> Dev and staging had low concurrency. Each request validated cleanly. Local profilers showed nothing. The bug only surfaced when multiple requests hit the same validator instance concurrently — a condition that only existed at production load.</p>
+
+                            <p><strong>Investigation.</strong> KQL queries on Application Insights, correlating timestamp clusters with the failing endpoint, showed the errors clustered tightly during burst traffic. That alone hinted at concurrency. Reading the FluentValidation pipeline behavior carefully revealed the issue: the behavior was running multiple validators in parallel via <code>Task.WhenAll</code>, and they were all writing to a shared <code>Dictionary&lt;string, ValidationFailure&gt;</code> — which is not thread-safe for writes.</p>
+
+                            <p><strong>Root cause.</strong> Parallel validators were colliding on a shared dictionary. Most of the time the writes happened far enough apart in time that they didn't collide; under burst load, they did, and the dictionary's internal state got corrupted, throwing on the next read.</p>
+
+                            <p><strong>The fix.</strong> Two changes, in order of safety:</p>
+                            <ol>
+                                <li>Each validator wrote to its <em>own</em> local result, and the pipeline behavior aggregated them after all tasks completed — no shared mutable state during parallel execution.</li>
+                                <li>Where aggregation across validators was unavoidable, swapped <code>Dictionary</code> for <code>ConcurrentDictionary</code> as a safety net.</li>
+                            </ol>
+
+                            <p>500s dropped to zero on the next deploy. The bug had been in production for months, masked by low concurrency.</p>
+
+                            <p><strong>Lesson.</strong> "Works in dev, fails in prod" is almost always a concurrency or environment story. When a stack trace points at framework code with no obvious application-level cause, look for shared mutable state being touched in parallel. The fix isn't always <code>ConcurrentDictionary</code> — often the right answer is "don't share state at all," then aggregate at the end. KQL with timestamp clustering is one of the fastest ways to confirm a concurrency hypothesis without being able to reproduce locally.</p>
+                        </div>
+                    </div>
+
             </div>
             <div class="experience" id="experience">
                 <div class="content-inner">
@@ -185,13 +484,11 @@
                                 </div>
                                 <div><b>Key Achievements:</b>
                                     <ul>
-                                        <li><i class="fas fa-rocket achievement-icon"></i><strong>Survey V2 — flagship product, lead engineer.</strong> Owned end-to-end migration from legacy V1 (5+ year-old ASP.NET MVC monolith) to V2 (.NET 8 Clean Architecture with CQRS/MediatR). Preserved <strong>100% data integrity</strong> across thousands of historical surveys, responses, and permissions with zero user-reported data loss. Drove product adoption by shipping AI-assisted survey creation (Azure OpenAI tool_calls), reminder-email flows, and in-app notifications. Currently designing RAG / embedding-based semantic caching (text-embedding-3-small) to cut LLM cost while improving question quality.</li>
-                                        <li><i class="fas fa-bolt achievement-icon"></i><strong>Location API — 82% p95 latency reduction (14s → 2.5s).</strong> Parallelized Google Places / Geocoding external calls using SemaphoreSlim-controlled concurrency, reducing tail latency by ~5.6× for an API consumed by 8+ downstream products. Added address-migration background service with telemetry, deduplication, and export. Packaged the UI as a reusable NuGet (<em>Location.UI.Mvc</em>) adopted by other internal teams.</li>
-                                        <li><i class="fas fa-database achievement-icon"></i><strong>Sync-job optimization — ~99% query reduction.</strong> Cut 10,000+ database queries per run down to 4–5 by pre-loading lookup sets into Dictionary / HashSet in memory and converting per-row queries to bulk reads. Job runtime dropped from hours to minutes, freeing scheduling capacity for downstream pipelines.</li>
-                                        <li><i class="fas fa-puzzle-piece achievement-icon"></i><strong>THOR (ErpDocument) — reusable component library &amp; lifecycle automation.</strong> Built ThorCascader (multi-level folder picker) and ThorSelect Quasar components adopted across multiple modules, accelerating feature delivery for the team. Implemented document template lifecycle automation (expiration reminders, auto-archiving, overdue rejection) via HostedService background workers. Integrated SharePoint CSOM for folder structure sync and ODIN for portal/category management.</li>
-                                        <li><i class="fas fa-bug achievement-icon"></i><strong>Production debugging across distributed services using KQL.</strong> Root-caused: a FluentValidation concurrent-collection threading bug in ITAccess (parallel validators corrupting Dictionary writes), GDPR delete 403s across Service Bus consumers, MessageHub timeouts, and Guardian multi-branding 500 errors (Unity DI lifetime mismatch) — correlating Application Insights traces across 3–4 services.</li>
-                                        <li><i class="fas fa-cloud-upload-alt achievement-icon"></i><strong>CDN download service migration.</strong> Migrated from .NET Framework 4.8 to .NET 8 Minimal API, including a public file-access statistics dashboard (KQL + charts) supporting millions of records. Fixed 307 redirect loop and ZIP-streaming flow with AllowSynchronousIO.</li>
-                                        <li><i class="fas fa-users achievement-icon"></i><strong>Technical leadership.</strong> Authored ITAccess technical handover documentation on Azure DevOps Wiki, enabling another team to take full ownership without ramp-up loss. Active in the team's AI best-practices channel; piloted Claude Code + MCP / Azure DevOps integration to improve team developer experience.</li>
+                                        <li><i class="fas fa-rocket achievement-icon"></i><strong>Survey V2 — flagship product, lead engineer.</strong> Led the V1→V2 migration to .NET 8 Clean Architecture + CQRS/MediatR with <strong>100% data integrity</strong>. Shipped AI-assisted survey creation with Azure OpenAI tool_calls; currently designing RAG / embedding-based semantic caching. <em>(See Stories below for the migration deep dive.)</em></li>
+                                        <li><i class="fas fa-bolt achievement-icon"></i><strong>Location API — 82% p95 latency reduction (14s → 2.5s)</strong> via SemaphoreSlim-controlled concurrency. API consumed by 8+ downstream products. Packaged the UI as a reusable NuGet (<em>Location.UI.Mvc</em>) adopted across teams. <em>(See Stories for the technique.)</em></li>
+                                        <li><i class="fas fa-database achievement-icon"></i><strong>Sync-job optimization — ~99% query reduction</strong> (10,000+ → 4–5 per run) by pre-loading lookups into Dictionary / HashSet and converting per-row queries to bulk reads. Runtime dropped from hours to minutes.</li>
+                                        <li><i class="fas fa-puzzle-piece achievement-icon"></i><strong>THOR — reusable component library &amp; lifecycle automation.</strong> Built ThorCascader and ThorSelect Quasar components adopted across modules. Implemented document template lifecycle automation (expiration reminders, auto-archiving, overdue rejection) via HostedService workers; SharePoint CSOM + ODIN integration.</li>
+                                        <li><i class="fas fa-users achievement-icon"></i><strong>Technical leadership.</strong> Authored ITAccess handover documentation on Azure DevOps Wiki enabling another team to take full ownership. Migrated CDN download from .NET 4.8 to .NET 8 Minimal API. Active in team AI best-practices; piloted Claude Code + MCP / Azure DevOps integration.</li>
                                     </ul>
                                 </div>
                                 <div><b>Technologies:</b>
@@ -297,76 +594,62 @@
                     <div class="content-header">
                         <h2>Skills</h2>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="srv-col">
-                                <h3>🧠 CORE COMPETENCIES</h3>
-                                <ul>
-                                    <li><strong>Product Engineering:</strong> End-to-end ownership, roadmap, user adoption, long-term maintenance</li>
-                                    <li><strong>System Architecture:</strong> Clean Architecture, CQRS, Domain-Driven Design, Microservices, Event-driven (Service Bus)</li>
-                                    <li><strong>Performance Optimization:</strong> Query reduction, parallelization with concurrency control, caching strategies</li>
-                                    <li><strong>Technical Leadership:</strong> Cross-team handovers, mentoring, code reviews, technical documentation</li>
-                                    <li><strong>Production Debugging:</strong> Distributed tracing, KQL diagnostics across multiple services</li>
-                                </ul>
-                            </div>
+                    <div class="skills-compact">
+                        <div class="skills-compact-row">
+                            <div class="skills-compact-label">Core</div>
+                            <div>Product engineering (end-to-end ownership), Clean Architecture, CQRS/MediatR, Domain-Driven Design, microservices, event-driven (Service Bus), performance optimization, production debugging</div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="srv-col">
-                                <h3>⚙️ BACKEND TECHNOLOGIES</h3>
-                                <ul>
-                                    <li><strong>.NET Ecosystem:</strong> .NET 8 / 6 / .NET Framework 4.8 (7+ years experience)</li>
-                                    <li><strong>Web APIs:</strong> ASP.NET Core, Minimal API, RESTful, GraphQL, SignalR</li>
-                                    <li><strong>ORM &amp; Data Access:</strong> Entity Framework Core, Dapper, LINQ</li>
-                                    <li><strong>Architecture Patterns:</strong> Clean Architecture, CQRS/MediatR, FluentValidation, State Machine</li>
-                                    <li><strong>Background Processing:</strong> Hosted Services, Hangfire, Azure Service Bus</li>
-                                </ul>
-                            </div>
+                        <div class="skills-compact-row">
+                            <div class="skills-compact-label">Backend</div>
+                            <div>.NET 8 / 6 / Framework 4.8, ASP.NET Core, Minimal API, EF Core, Dapper, MediatR, FluentValidation, Hangfire, Hosted Services, RESTful, GraphQL, SignalR</div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="srv-col">
-                                <h3>🤖 AI / ML INTEGRATION</h3>
-                                <ul>
-                                    <li><strong>Azure OpenAI:</strong> tool_calls, function calling, structured outputs</li>
-                                    <li><strong>Embeddings &amp; RAG:</strong> text-embedding-3-small, semantic caching, vector retrieval</li>
-                                    <li><strong>Prompt Engineering:</strong> Structured output design, prompt revision via test harnesses</li>
-                                    <li><strong>LLM Product Features:</strong> AI-assisted content generation, summarization, semantic deduplication</li>
-                                    <li><strong>AI Tooling:</strong> Claude Code, MCP, agentic workflows for developer productivity</li>
-                                </ul>
-                            </div>
+                        <div class="skills-compact-row">
+                            <div class="skills-compact-label">Frontend</div>
+                            <div>Vue 3, Quasar, TypeScript, Pinia, Angular 2+, Tailwind, reusable component library design</div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="srv-col">
-                                <h3>💻 FRONTEND &amp; LANGUAGES</h3>
-                                <ul>
-                                    <li><strong>Vue 3 + Quasar:</strong> Advanced — Pinia state management, reusable component library design</li>
-                                    <li><strong>TypeScript:</strong> Proficient — modern ES6+, type-safe APIs</li>
-                                    <li><strong>Angular 2+:</strong> Proficient — SPA, Material UI</li>
-                                    <li><strong>HTML/CSS/Tailwind:</strong> Advanced — responsive design</li>
-                                    <li><strong>Languages:</strong> Vietnamese (native), English (professional working proficiency)</li>
-                                </ul>
-                            </div>
+                        <div class="skills-compact-row">
+                            <div class="skills-compact-label">Cloud / Azure</div>
+                            <div>App Services, Service Bus, Storage, Application Insights + KQL, OpenAI, DevOps Pipelines, Entra ID</div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="srv-col">
-                                <h3>🗄️ DATABASES</h3>
-                                <ul>
-                                    <li><strong>SQL Server:</strong> Advanced — performance tuning, index optimization, schema migration, deadlock debugging</li>
-                                    <li><strong>PostgreSQL:</strong> Proficient — complex queries, data modeling</li>
-                                    <li><strong>MongoDB:</strong> Intermediate — NoSQL design, aggregation pipelines, SQL ↔ NoSQL sync</li>
-                                    <li><strong>MySQL:</strong> Intermediate</li>
-                                </ul>
-                            </div>
+                        <div class="skills-compact-row">
+                            <div class="skills-compact-label">AI / ML</div>
+                            <div>Azure OpenAI (tool_calls, function calling, structured outputs), embeddings (text-embedding-3-small), RAG, semantic caching, prompt engineering, Claude Code + MCP</div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="srv-col">
-                                <h3>☁️ AZURE &amp; DEVOPS</h3>
-                                <ul>
-                                    <li><strong>Azure Services:</strong> App Services, Service Bus, Storage, Application Insights, OpenAI, Entra ID</li>
-                                    <li><strong>Observability:</strong> KQL diagnostics, distributed tracing, structured logging</li>
-                                    <li><strong>CI/CD:</strong> Azure DevOps Pipelines, automated deployment, NuGet package distribution</li>
-                                    <li><strong>Auth &amp; Security:</strong> OAuth 2.0, OpenID Connect, Entra ID / Azure AD, multi-tenant authentication, OWASP Top 10</li>
-                                    <li><strong>Tools:</strong> Git, Docker, Postman, AutoMapper, NPOI</li>
-                                </ul>
+                        <div class="skills-compact-row">
+                            <div class="skills-compact-label">Databases</div>
+                            <div>SQL Server (perf tuning, schema migration, deadlock debugging), PostgreSQL, MongoDB, MySQL</div>
+                        </div>
+                        <div class="skills-compact-row">
+                            <div class="skills-compact-label">Auth / Security</div>
+                            <div>OAuth 2.0, OpenID Connect, Entra ID / Azure AD, multi-tenant authentication, OWASP Top 10</div>
+                        </div>
+                        <div class="skills-compact-row">
+                            <div class="skills-compact-label">DevOps / Tools</div>
+                            <div>Azure DevOps Pipelines, CI/CD, Git, Docker, NuGet, AutoMapper, Postman</div>
+                        </div>
+                        <div class="skills-compact-row">
+                            <div class="skills-compact-label">Testing</div>
+                            <div>XUnit, NUnit, SpecFlow, unit testing, integration testing</div>
+                        </div>
+                        <div class="skills-compact-row">
+                            <div class="skills-compact-label">Languages</div>
+                            <div>Vietnamese (native), English (professional working proficiency)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="education" id="education">
+                <div class="content-inner">
+                    <div class="content-header">
+                        <h2>Education &amp; Research</h2>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <div class="edu-col">
+                                <span>2012 <i> to </i>2016</span>
+                                <h3>B.Sc. Software Engineering</h3>
+                                <p>VNU-HCM — University of Science</p>
+                                <p><em>Research: Vietnamese Automatic Speech Recognition &amp; Speech Separation — contributed to the VN-SpeechMix dataset for Vietnamese speech processing.</em></p>
                             </div>
                         </div>
                     </div>
@@ -408,6 +691,21 @@
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        // Story expand/collapse
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.story-col').forEach(function(card) {
+                card.addEventListener('click', function(e) {
+                    // Don't collapse when clicking links/code inside body
+                    if (card.classList.contains('expanded') &&
+                        e.target.closest('.story-body')) {
+                        return;
+                    }
+                    card.classList.toggle('expanded');
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
